@@ -1,34 +1,41 @@
 import UpdateProduct from "./updateProducts";
 
-export type productType = {
-  _id: string,
-  name: string,
-  selectImg: seletImgtype,
+export type ProductType = {
+  _id: string;
+  name: string;
+  selectImg: SelectImgType;
 };
 
-export type seletImgtype = {
-  title: string,
-  image: string,
+export type SelectImgType = {
+  title: string;
+  image: string;
 };
 
-export default async function home({
-  params: { id },
+
+export default async function Home({
+  params,
 }: {
-  params: { id: string },
+  params: { id: string }; 
 }) {
-  let data: productType | null = null;
+  let data: ProductType | null = null;
+
   try {
-    const res = await fetch(`https://be-e-commerce-tohe.onrender.com/api/products/getDetailProducts/${id}`, { cache: "no-store" });
-    const ress = await res.json();
-    data = ress.data;
+    const res = await fetch(
+      `https://be-e-commerce-tohe.onrender.com/api/products/getDetailProducts/${params.id}`,
+      { cache: "no-store" }
+    );
+    const result = await res.json();
+    data = result.data;
   } catch (error) {
     console.error("Error fetching product details:", error);
   }
-  console.log("check data", data);
+
+  console.log("Check data", data);
 
   return (
     <>
-      <UpdateProduct data={data} />
+      
+      {data ? <UpdateProduct data={data} /> : <div>Loading...</div>}
     </>
   );
 }
