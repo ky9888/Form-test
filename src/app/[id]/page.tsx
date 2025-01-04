@@ -10,15 +10,15 @@ export type SelectImgType = {
   title: string;
   image: string;
 };
+type PageProps = {
+  params: {
+    id: string;
+  };
+};
 
-
-export default async function Home({
-  params,
-}: {
-  params: { id: string }; 
-}) {
+export default async function Home({ params }: PageProps) {
   let data: ProductType | null = null;
-console.log('ggg',params.id);
+
 
   try {
     const res = await fetch(
@@ -31,7 +31,7 @@ console.log('ggg',params.id);
     console.error("Error fetching product details:", error);
   }
 
-  console.log("Check data", data);
+ 
 
   return (
     <>

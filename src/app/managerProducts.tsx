@@ -43,7 +43,7 @@ const ManagerProducts: React.FC<HomePageProps> = ({ data }) => {
     <div className="mx-[20%] ">
       <table className="min-w-full border-collapse ">
         <thead>
-          <tr className="text-left bg-gray-100 border border-black">
+          <tr className="text-left bg-gray-200 border border-black">
             <th className="py-2 px-4 border-r text-center border-black">Sản phẩm</th>
             <th className="py-2 px-4 border-r text-center border-black">Giá</th>
             <th className="py-2 px-4 text-center">Thao tác</th>
@@ -53,7 +53,7 @@ const ManagerProducts: React.FC<HomePageProps> = ({ data }) => {
           {products.map((item, index) => (
             <tr
               key={item._id}
-              className={`border-b border-black ${index % 2 === 0 ? "bg-gray-50" : "bg-white"} items-center border-x `}
+              className={`border-b border-black ${index % 2 === 0 ? "bg-gray-100" : "bg-white"} items-center border-x `}
             > 
               <td className=" border-r border-black">
                <div className="py-2 h-full px-4 flex items-center space-x-2">
