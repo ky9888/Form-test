@@ -10,15 +10,13 @@ export type SelectImgType = {
   title: string;
   image: string;
 };
-type PageProps = {
-  params: {
-    id: number;
-  };
-};
 
-export default async function Home({ params }: PageProps) {
+export default async function Home({
+  params,
+}: {
+  params: { id: string }; 
+}) {
   let data: ProductType | null = null;
-
 
   try {
     const res = await fetch(
@@ -26,16 +24,15 @@ export default async function Home({ params }: PageProps) {
       { cache: "no-store" }
     );
     const result = await res.json();
-    data = result.data as ProductType;
+    data = result.data;
   } catch (error) {
     console.error("Error fetching product details:", error);
   }
 
- 
+  console.log("Check data", data);
 
   return (
     <>
-      
       {data ? <UpdateProduct data={data} /> : <div>Loading...</div>}
     </>
   );
