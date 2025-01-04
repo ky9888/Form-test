@@ -26,7 +26,7 @@ export default async function Home({ params }: PageProps) {
       { cache: "no-store" }
     );
     const result = await res.json();
-    data = result.data;
+    data = result.data as ProductType;
   } catch (error) {
     console.error("Error fetching product details:", error);
   }

@@ -244,8 +244,8 @@ const AddProducts: React.FC = () => {
               {formik.errors.describe}
             </span>
           )}
-          <div className="flex bg-slate-600 text-slate-100 justify-center pt-2 border border-slate-400 rounded-md py-2 px-5 hover:bg-slate-500">
-            <button type="submit" className="w-full">Xác nhận</button>
+           <div className="flex  text-slate-100 justify-center    ">
+            <button type="submit" className="w-full bg-slate-600 rounded-md  border hover:bg-slate-500 border-slate-400  py-2">Xác nhận</button>
           </div>
         </form>
       </FormikProvider>
