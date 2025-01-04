@@ -66,7 +66,7 @@ const AddProducts: React.FC = () => {
   });
 
   return (
-    <div className="px-[25%]  max-lg:px-[7%] rounded-md mt-5">
+    <div className="px-[25%]  max-lg:px-[7%] rounded-md mt-1">
       <h1 className="text-center text-[20px] font-bold mb-5">Thêm sản phẩm</h1>
       <FormikProvider value={formik}>
         <form

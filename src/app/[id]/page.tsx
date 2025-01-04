@@ -18,6 +18,7 @@ export default async function Home({
   params: { id: string }; 
 }) {
   let data: ProductType | null = null;
+console.log('ggg',params.id);
 
   try {
     const res = await fetch(

@@ -40,41 +40,43 @@ const ManagerProducts: React.FC<HomePageProps> = ({ data }) => {
   };
 
   return (
-    <div className="mx-[20%]">
-      <table className="min-w-full border-collapse">
+    <div className="mx-[20%] ">
+      <table className="min-w-full border-collapse ">
         <thead>
-          <tr className="text-left bg-gray-100 border-b">
-            <th className="py-2 px-4 border-r">Sản phẩm</th>
-            <th className="py-2 px-4 border-r">Giá</th>
-            <th className="py-2 px-4">Thao tác</th>
+          <tr className="text-left bg-gray-100 border border-black">
+            <th className="py-2 px-4 border-r text-center border-black">Sản phẩm</th>
+            <th className="py-2 px-4 border-r text-center border-black">Giá</th>
+            <th className="py-2 px-4 text-center">Thao tác</th>
           </tr>
         </thead>
         <tbody>
           {products.map((item, index) => (
             <tr
               key={item._id}
-              className={`border-b ${index % 2 === 0 ? "bg-gray-50" : "bg-white"} items-center`}
-            >
-              <td className="py-2 h-full px-4 flex items-center space-x-2 border-r">
-                <Image
-                  src={item.images[0]?.image}
-                  alt={item.name}
-                  height={30}
-                  width={30}
-                />
-                <span>{item.title}</span>
+              className={`border-b border-black ${index % 2 === 0 ? "bg-gray-50" : "bg-white"} items-center border-x `}
+            > 
+              <td className=" border-r border-black">
+               <div className="py-2 h-full px-4 flex items-center space-x-2">
+                  <Image
+                    src={item.images[0]?.image}
+                    alt={item.name}
+                    height={30}
+                    width={30}
+                  />
+                  <span>{item.title}</span>
+               </div>
               </td>
-              <td className="py-2 px-4 border-r">{item.priceG}</td>
-              <td className="py-2 px-4 flex space-x-3">
+              <td className="py-2 px-4 border-r border-black text-center">{item.priceG}</td>
+              <td className="py-2 px-4 flex space-x-3 justify-center">
                 <button
                   onClick={() => router.push(`/${item._id}`)}
-                  className="py-1 px-2 rounded-md bg-slate-400"
+                  className="py-1 px-2 rounded-md bg-slate-400 hover:bg-slate-500"
                 >
                   Sửa
                 </button>
                 <button
                   onClick={() => handleDelete(item._id)}
-                  className="py-1 px-2 rounded-md bg-red-500"
+                  className="py-1 px-2 rounded-md bg-red-500 hover:bg-red-600"
                 >
                   Xóa
                 </button>
