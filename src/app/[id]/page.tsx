@@ -12,7 +12,7 @@ export type SelectImgType = {
 };
 type PageProps = {
   params: {
-    id: string;
+    id: number;
   };
 };
 
